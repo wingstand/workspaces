@@ -1,0 +1,187 @@
+{
+  "options": {
+    "version": 6,
+    "flowtime_version": {
+      "minor": 15,
+      "major": 0
+    },
+    "disabled_nodes": [
+      "node-red/function",
+      [
+        "node-red",
+        "trigger"
+      ]
+    ]
+  },
+  "module": "Elixir.Workspace_date",
+  "id": "date",
+  "flowsHash": "d787a41b259dae35648b4eb17e00162b",
+  "flows": [
+    {
+      "type": "tab",
+      "label": "Flow 1",
+      "id": "5f9dcda1.3d9f64"
+    },
+    {
+      "type": "tab",
+      "label": "Flow 2",
+      "id": "f452a2e7.8f67c8"
+    },
+    {
+      "z": "5f9dcda1.3d9f64",
+      "y": 61,
+      "x": 146,
+      "wires": [
+        [
+          "6c647435.8261b4"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "date",
+      "payload": "",
+      "once": false,
+      "name": "",
+      "id": "11ce6a1a.b01066",
+      "crontab": ""
+    },
+    {
+      "z": "5f9dcda1.3d9f64",
+      "y": 187,
+      "x": 689,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "83602ae6.528a98",
+      "console": "true",
+      "complete": "payload",
+      "active": true
+    },
+    {
+      "z": "5f9dcda1.3d9f64",
+      "y": 225,
+      "x": 447,
+      "wires": [
+        [
+          "83602ae6.528a98"
+        ]
+      ],
+      "type": "date",
+      "srcType": "msg",
+      "srcFormat": "guess",
+      "src": "payload",
+      "name": "Convert",
+      "id": "6c647435.8261b4",
+      "destType": "msg",
+      "destFormat": "internet",
+      "dest": "payload"
+    },
+    {
+      "z": "5f9dcda1.3d9f64",
+      "y": 268,
+      "x": 139,
+      "wires": [
+        [
+          "6c647435.8261b4"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "num",
+      "payload": "1495619221",
+      "once": false,
+      "name": "",
+      "id": "4f92f503.f8a084",
+      "crontab": ""
+    },
+    {
+      "z": "5f9dcda1.3d9f64",
+      "y": 382,
+      "x": 173,
+      "wires": [
+        [
+          "6c647435.8261b4"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "str",
+      "payload": "2017-05-24T11:07:21Z",
+      "once": false,
+      "name": "",
+      "id": "1b7c9242.9e9d86",
+      "crontab": ""
+    },
+    {
+      "z": "f452a2e7.8f67c8",
+      "y": 112,
+      "x": 154,
+      "wires": [
+        [
+          "2eb9816b.b067ae"
+        ]
+      ],
+      "url": "/:date",
+      "type": "http in",
+      "swaggerDoc": "",
+      "name": "",
+      "method": "get",
+      "id": "adbdcce8.dc998"
+    },
+    {
+      "z": "f452a2e7.8f67c8",
+      "y": 194,
+      "x": 337,
+      "wires": [
+        [
+          "fb30878e.a42928"
+        ],
+        [
+          "f641da70.304438"
+        ]
+      ],
+      "useCookies": false,
+      "type": "http auth",
+      "table": "car",
+      "realm": "Date",
+      "name": "",
+      "id": "2eb9816b.b067ae",
+      "cookiePath": "/",
+      "cookieName": "auth",
+      "cookieDurationUnits": "days",
+      "cookieDuration": "1"
+    },
+    {
+      "z": "f452a2e7.8f67c8",
+      "y": 261,
+      "x": 626,
+      "wires": [],
+      "type": "http response",
+      "name": "",
+      "id": "f641da70.304438"
+    },
+    {
+      "z": "f452a2e7.8f67c8",
+      "y": 112,
+      "x": 541,
+      "wires": [
+        [
+          "f641da70.304438"
+        ]
+      ],
+      "type": "date",
+      "srcType": "msg",
+      "srcFormat": "unix",
+      "src": "req.params.date",
+      "name": "HTTP convert",
+      "id": "fb30878e.a42928",
+      "destType": "msg",
+      "destFormat": "iso",
+      "dest": "payload"
+    }
+  ],
+  "enabled": false
+}
