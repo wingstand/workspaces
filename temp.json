@@ -1,6 +1,6 @@
 {
   "options": {
-    "version": 257,
+    "version": 260,
     "flowtime_version": {
       "minor": 19,
       "major": 0
@@ -8,11 +8,11 @@
   },
   "module": "Elixir.Workspace_temp",
   "id": "temp",
-  "flowsHash": "753b00dec95bfaee22f41ea9862ea678",
+  "flowsHash": "f375d55a14c6eab54dad012515749e50",
   "flows": [
     {
       "type": "tab",
-      "label": "Flow 1.5",
+      "label": "Flow 1.6",
       "id": "8c5077e5.0a6ba8"
     },
     {
@@ -100,7 +100,7 @@
     {
       "z": "8c5077e5.0a6ba8",
       "y": 40,
-      "x": 360,
+      "x": 480,
       "wires": [
         []
       ],
