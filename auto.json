@@ -1,0 +1,801 @@
+{
+  "options": {
+    "version": 143,
+    "flowtime_version": {
+      "minor": 21,
+      "major": 0
+    }
+  },
+  "module": "Elixir.Workspace_auto",
+  "id": "auto",
+  "flowsHash": "16ab0b321f926f3841f642d128f805f6",
+  "flows": [
+    {
+      "type": "tab",
+      "label": "Flow 1",
+      "id": "318e5d11.68e1b2"
+    },
+    {
+      "type": "tab",
+      "label": "Flow 2",
+      "id": "bc1839c3.1194e8"
+    },
+    {
+      "type": "tab",
+      "label": "HTTP",
+      "id": "ba9289ec.1a48d"
+    },
+    {
+      "type": "tab",
+      "label": "Subflow Test",
+      "id": "ce5f6461.0ce2c8"
+    },
+    {
+      "type": "tab",
+      "label": "WebSocket",
+      "id": "910f4c55.baeb18"
+    },
+    {
+      "type": "tab",
+      "label": "Tests",
+      "id": "4449d26c.a0e5bc"
+    },
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 200,
+          "x": 460,
+          "wires": [
+            {
+              "port": 0,
+              "id": "ea5a804c.1a26e8"
+            }
+          ]
+        }
+      ],
+      "name": "Double",
+      "info": "",
+      "in": [
+        {
+          "y": 30,
+          "x": 50,
+          "wires": [
+            {
+              "id": "ea5a804c.1a26e8"
+            }
+          ]
+        }
+      ],
+      "id": "f0cc9728.2b76c"
+    },
+    {
+      "z": "",
+      "wholemsg": "false",
+      "type": "websocket-listener",
+      "path": "/testws",
+      "id": "d92f857a.ac6e98"
+    },
+    {
+      "z": "",
+      "wholemsg": "false",
+      "type": "websocket-client",
+      "path": "ws://localhost:8080/testws",
+      "id": "4078293b.1b2208"
+    },
+    {
+      "z": "318e5d11.68e1b2",
+      "y": 60,
+      "x": 130,
+      "wires": [
+        [
+          "be67e2f9.eaa078"
+        ]
+      ],
+      "type": "test",
+      "topic": "",
+      "tab": "318e5d11.68e1b2",
+      "rules": [
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "318e5d11.68e1b2",
+          "producer": "be67e2f9.eaa078",
+          "output": "any",
+          "op": "eq",
+          "message": "forward",
+          "expectedt": "num",
+          "expected": "2",
+          "actualt": "msg",
+          "actual": "payload"
+        },
+        {
+          "timeoutUnits": "second",
+          "timeout": "3",
+          "tab": "318e5d11.68e1b2",
+          "producer": "be67e2f9.eaa078",
+          "output": "1",
+          "op": "eq",
+          "message": "send",
+          "expectedt": "bool",
+          "expected": "true",
+          "actualt": "msg",
+          "actual": "payload"
+        }
+      ],
+      "payloadType": "num",
+      "payload": "2",
+      "outputs": 1,
+      "node": "be67e2f9.eaa078",
+      "name": "Pass-Through Test",
+      "method": "output",
+      "id": "47a971b1.20e048"
+    },
+    {
+      "z": "318e5d11.68e1b2",
+      "y": 160,
+      "x": 390,
+      "wires": [
+        [
+          "1652407.a4b254"
+        ],
+        [
+          "3ddb44e1.a54ccc"
+        ]
+      ],
+      "type": "elixir",
+      "script": "Context.set flow, \"test\", \"Hello!\"\n\nmsg2 = %{\"id\" => \"1\", \"payload\" => true}\n[msg, msg2]\n",
+      "outputs": "2",
+      "name": "Pass through",
+      "id": "be67e2f9.eaa078"
+    },
+    {
+      "z": "318e5d11.68e1b2",
+      "y": 160,
+      "x": 90,
+      "wires": [
+        [
+          "be67e2f9.eaa078"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "num",
+      "payload": "42",
+      "once": false,
+      "name": "",
+      "id": "3dbdb7cc.663a18",
+      "crontab": ""
+    },
+    {
+      "z": "318e5d11.68e1b2",
+      "y": 80,
+      "x": 570,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "1652407.a4b254",
+      "console": "false",
+      "complete": "false",
+      "active": true
+    },
+    {
+      "z": "318e5d11.68e1b2",
+      "y": 220,
+      "x": 570,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "3ddb44e1.a54ccc",
+      "console": "false",
+      "complete": "false",
+      "active": true
+    },
+    {
+      "z": "318e5d11.68e1b2",
+      "y": 300,
+      "x": 90,
+      "wires": [
+        [
+          "bf516c65.3a87f8"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "num",
+      "payload": "1",
+      "once": false,
+      "name": "",
+      "id": "d4c12c67.b2fe48",
+      "crontab": ""
+    },
+    {
+      "z": "318e5d11.68e1b2",
+      "y": 300,
+      "x": 240,
+      "wires": [
+        [
+          "be67e2f9.eaa078"
+        ]
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "Increment",
+      "id": "bf516c65.3a87f8",
+      "func": "msg.payload += 1;\n\nreturn msg;"
+    },
+    {
+      "z": "ba9289ec.1a48d",
+      "y": 60,
+      "x": 120,
+      "wires": [
+        [
+          "9d7bd95a.abe8b"
+        ]
+      ],
+      "url": "/hello",
+      "type": "http in",
+      "swaggerDoc": "",
+      "name": "Get Hello",
+      "method": "get",
+      "id": "a031949a.5d4188"
+    },
+    {
+      "z": "ba9289ec.1a48d",
+      "y": 180,
+      "x": 510,
+      "wires": [],
+      "type": "http response",
+      "name": "",
+      "id": "eec3ed88.47d658"
+    },
+    {
+      "z": "ba9289ec.1a48d",
+      "y": 120,
+      "x": 310,
+      "wires": [
+        [
+          "eec3ed88.47d658"
+        ]
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "",
+      "id": "9d7bd95a.abe8b",
+      "func": "msg.payload = \"Hello, World!\";\n\nreturn msg;"
+    },
+    {
+      "z": "ba9289ec.1a48d",
+      "y": 300,
+      "x": 140,
+      "wires": [
+        [
+          "3437851c.200f6a"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "date",
+      "payload": "",
+      "once": false,
+      "name": "Trigger Request",
+      "id": "72a3be80.4887f",
+      "crontab": ""
+    },
+    {
+      "z": "ba9289ec.1a48d",
+      "y": 400,
+      "x": 290,
+      "wires": [
+        [
+          "1e273e6.afcaf42"
+        ]
+      ],
+      "url": "http://localhost:8080/hello",
+      "type": "http request",
+      "tls": "",
+      "ret": "txt",
+      "name": "Request",
+      "multipart": false,
+      "method": "GET",
+      "id": "3437851c.200f6a"
+    },
+    {
+      "z": "ba9289ec.1a48d",
+      "y": 480,
+      "x": 500,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "1e273e6.afcaf42",
+      "console": "false",
+      "complete": "false",
+      "active": true
+    },
+    {
+      "z": "bc1839c3.1194e8",
+      "y": 100,
+      "x": 270,
+      "wires": [
+        [
+          "dd705028.88004"
+        ]
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "a/b",
+      "id": "c330986b.ad157",
+      "func": "msg.a = 1;\nmsg.b = 2;\n\nreturn msg;"
+    },
+    {
+      "z": "bc1839c3.1194e8",
+      "y": 60,
+      "x": 100,
+      "wires": [
+        [
+          "c330986b.ad157"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "date",
+      "payload": "",
+      "once": false,
+      "name": "",
+      "id": "68660a82.1f95ac",
+      "crontab": ""
+    },
+    {
+      "z": "bc1839c3.1194e8",
+      "y": 100,
+      "x": 430,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "dd705028.88004",
+      "console": "false",
+      "complete": "true",
+      "active": true
+    },
+    {
+      "z": "bc1839c3.1194e8",
+      "y": 140,
+      "x": 110,
+      "wires": [
+        [
+          "c330986b.ad157"
+        ]
+      ],
+      "type": "test",
+      "topic": "",
+      "tab": "bc1839c3.1194e8",
+      "rules": [
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "bc1839c3.1194e8",
+          "producer": "c330986b.ad157",
+          "output": "0",
+          "op": "eq",
+          "message": "forward",
+          "expectedt": "num",
+          "expected": "1",
+          "actualt": "msg",
+          "actual": "a"
+        },
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "bc1839c3.1194e8",
+          "producer": "c330986b.ad157",
+          "output": "0",
+          "op": "eq",
+          "message": "forward",
+          "expectedt": "num",
+          "expected": "2",
+          "actualt": "msg",
+          "actual": "b"
+        }
+      ],
+      "payloadType": "date",
+      "payload": "",
+      "outputs": 1,
+      "node": "c330986b.ad157",
+      "name": "",
+      "method": "output",
+      "id": "d09b4215.4b1c98"
+    },
+    {
+      "z": "bc1839c3.1194e8",
+      "y": 300,
+      "x": 330,
+      "wires": [
+        [
+          "3519ec76.0e8b8c"
+        ]
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "Stash the payload",
+      "id": "38a3fd33.94c202",
+      "func": "flow.set(\"test\", msg.payload);\n\nreturn msg;"
+    },
+    {
+      "z": "bc1839c3.1194e8",
+      "y": 380,
+      "x": 510,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "3519ec76.0e8b8c",
+      "console": "false",
+      "complete": "false",
+      "active": true
+    },
+    {
+      "z": "bc1839c3.1194e8",
+      "y": 240,
+      "x": 140,
+      "wires": [
+        [
+          "38a3fd33.94c202"
+        ]
+      ],
+      "type": "test",
+      "topic": "",
+      "tab": "bc1839c3.1194e8",
+      "rules": [
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "bc1839c3.1194e8",
+          "producer": "38a3fd33.94c202",
+          "output": "any",
+          "op": "eq",
+          "message": "forward",
+          "expectedt": "num",
+          "expected": "",
+          "actualt": "any",
+          "actual": ""
+        },
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "bc1839c3.1194e8",
+          "producer": "38a3fd33.94c202",
+          "output": "any",
+          "op": "eq",
+          "message": "forward",
+          "expectedt": "num",
+          "expected": "42",
+          "actualt": "flow",
+          "actual": "test"
+        }
+      ],
+      "payloadType": "num",
+      "payload": "42",
+      "outputs": 1,
+      "node": null,
+      "name": "Test flow context",
+      "method": "output",
+      "id": "974dfbc4.ce8e08"
+    },
+    {
+      "z": "ce5f6461.0ce2c8",
+      "y": 200,
+      "x": 160,
+      "wires": [
+        [
+          "7f1aa216.651fac"
+        ]
+      ],
+      "type": "test",
+      "topic": "",
+      "tab": "ce5f6461.0ce2c8",
+      "rules": [
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "ce5f6461.0ce2c8",
+          "producer": "7f1aa216.651fac",
+          "output": "0",
+          "op": "eq",
+          "message": "forward",
+          "expectedt": "num",
+          "expected": "4",
+          "actualt": "any",
+          "actual": ""
+        }
+      ],
+      "payloadType": "num",
+      "payload": "2",
+      "outputs": 1,
+      "node": "7f1aa216.651fac",
+      "name": "",
+      "method": "output",
+      "id": "cd3e7b4d.f70188"
+    },
+    {
+      "z": "f0cc9728.2b76c",
+      "y": 140,
+      "x": 230,
+      "wires": [
+        []
+      ],
+      "type": "elixir",
+      "script": "update_in msg[\"payload\"], fn p -> 2 * p end\n",
+      "outputs": 1,
+      "name": "",
+      "id": "ea5a804c.1a26e8"
+    },
+    {
+      "z": "ce5f6461.0ce2c8",
+      "y": 240,
+      "x": 410,
+      "wires": [
+        [
+          "712c8d74.c530f4"
+        ]
+      ],
+      "type": "subflow:f0cc9728.2b76c",
+      "name": "Subflow Call",
+      "id": "7f1aa216.651fac"
+    },
+    {
+      "z": "ce5f6461.0ce2c8",
+      "y": 300,
+      "x": 580,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "712c8d74.c530f4",
+      "console": "false",
+      "complete": "false",
+      "active": true
+    },
+    {
+      "z": "ce5f6461.0ce2c8",
+      "y": 340,
+      "x": 150,
+      "wires": [
+        [
+          "7f1aa216.651fac"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "num",
+      "payload": "2",
+      "once": false,
+      "name": "Inject 2",
+      "id": "f8fbdcd5.859a3",
+      "crontab": ""
+    },
+    {
+      "z": "910f4c55.baeb18",
+      "y": 120,
+      "x": 130,
+      "wires": [
+        [
+          "78e07e6d.36d4a8"
+        ]
+      ],
+      "type": "websocket in",
+      "server": "d92f857a.ac6e98",
+      "name": "",
+      "id": "92f31e2c.7568d8",
+      "client": ""
+    },
+    {
+      "z": "910f4c55.baeb18",
+      "y": 200,
+      "x": 340,
+      "wires": [
+        [
+          "daac4a72.f5d03"
+        ]
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "",
+      "id": "78e07e6d.36d4a8",
+      "func": "msg.payload = \"Hello \" + msg.payload + \"!\";\n\nreturn msg;"
+    },
+    {
+      "z": "910f4c55.baeb18",
+      "y": 260,
+      "x": 540,
+      "wires": [],
+      "type": "websocket out",
+      "server": "d92f857a.ac6e98",
+      "name": "",
+      "id": "daac4a72.f5d03",
+      "client": ""
+    },
+    {
+      "z": "910f4c55.baeb18",
+      "y": 420,
+      "x": 370,
+      "wires": [],
+      "type": "websocket out",
+      "server": "",
+      "name": "WS Request",
+      "id": "193ee24b.fdf916",
+      "client": "4078293b.1b2208"
+    },
+    {
+      "z": "910f4c55.baeb18",
+      "y": 380,
+      "x": 110,
+      "wires": [
+        [
+          "193ee24b.fdf916"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "str",
+      "payload": "Gary",
+      "once": false,
+      "name": "",
+      "id": "823e0a18.9cec",
+      "crontab": ""
+    },
+    {
+      "z": "910f4c55.baeb18",
+      "y": 500,
+      "x": 130,
+      "wires": [
+        [
+          "edb7e61a.4ee0d8"
+        ]
+      ],
+      "type": "websocket in",
+      "server": "",
+      "name": "WS Response",
+      "id": "b18189e5.7770b8",
+      "client": "4078293b.1b2208"
+    },
+    {
+      "z": "910f4c55.baeb18",
+      "y": 580,
+      "x": 450,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "edb7e61a.4ee0d8",
+      "console": "false",
+      "complete": "false",
+      "active": true
+    },
+    {
+      "z": "4449d26c.a0e5bc",
+      "y": 60,
+      "x": 130,
+      "wires": [],
+      "type": "test",
+      "topic": "",
+      "tab": "318e5d11.68e1b2",
+      "rules": [
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "318e5d11.68e1b2",
+          "producer": "bf516c65.3a87f8",
+          "output": "0",
+          "op": "eq",
+          "expectedt": "num",
+          "expected": "4",
+          "actualt": "msg",
+          "actual": "payload"
+        },
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "318e5d11.68e1b2",
+          "producer": "be67e2f9.eaa078",
+          "output": "any",
+          "op": "eq",
+          "expectedt": "num",
+          "expected": "4",
+          "actualt": "msg",
+          "actual": "payload"
+        }
+      ],
+      "payloadType": "num",
+      "payload": "3",
+      "outputs": 0,
+      "node": "bf516c65.3a87f8",
+      "name": "Increment Test",
+      "method": "send",
+      "id": "5c2522f6.c4b94c"
+    },
+    {
+      "z": "4449d26c.a0e5bc",
+      "y": 120,
+      "x": 120,
+      "wires": [],
+      "type": "test",
+      "topic": "",
+      "tab": "ba9289ec.1a48d",
+      "rules": [
+        {
+          "timeoutUnits": "second",
+          "timeout": "10",
+          "tab": "ba9289ec.1a48d",
+          "producer": "a031949a.5d4188",
+          "output": "any",
+          "op": "eq",
+          "message": "send",
+          "expectedt": "str",
+          "expected": "",
+          "actualt": "any",
+          "actual": ""
+        },
+        {
+          "timeoutUnits": "second",
+          "timeout": "1",
+          "tab": "ba9289ec.1a48d",
+          "producer": "3437851c.200f6a",
+          "output": "0",
+          "op": "eq",
+          "message": "forward",
+          "expectedt": "str",
+          "expected": "Hello, World!",
+          "actualt": "msg",
+          "actual": "payload"
+        }
+      ],
+      "payloadType": "date",
+      "payload": "",
+      "outputs": 0,
+      "node": "72a3be80.4887f",
+      "name": "HTTP Test",
+      "method": "trigger",
+      "id": "20e7e6c8.316da2"
+    },
+    {
+      "z": "4449d26c.a0e5bc",
+      "y": 180,
+      "x": 140,
+      "wires": [],
+      "type": "test",
+      "topic": "",
+      "tab": "910f4c55.baeb18",
+      "rules": [
+        {
+          "timeoutUnits": "second",
+          "timeout": "10",
+          "tab": "910f4c55.baeb18",
+          "producer": "b18189e5.7770b8",
+          "output": "any",
+          "op": "eq",
+          "message": "send",
+          "expectedt": "str",
+          "expected": "Hello Test!",
+          "actualt": "msg",
+          "actual": "payload"
+        }
+      ],
+      "payloadType": "str",
+      "payload": "Test",
+      "outputs": 0,
+      "node": "193ee24b.fdf916",
+      "name": "Websocket Test",
+      "method": "send",
+      "id": "87ff438f.210078"
+    }
+  ],
+  "enabled": true
+}
