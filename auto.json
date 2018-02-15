@@ -1,6 +1,6 @@
 {
   "options": {
-    "version": 143,
+    "version": 227,
     "flowtime_version": {
       "minor": 21,
       "major": 0
@@ -8,7 +8,7 @@
   },
   "module": "Elixir.Workspace_auto",
   "id": "auto",
-  "flowsHash": "16ab0b321f926f3841f642d128f805f6",
+  "flowsHash": "0ae54b1e23e2c42f0f107df1b5cbd21b",
   "flows": [
     {
       "type": "tab",
@@ -41,6 +41,16 @@
       "id": "4449d26c.a0e5bc"
     },
     {
+      "type": "tab",
+      "label": "Flow 3",
+      "id": "f4819d2c.21b61"
+    },
+    {
+      "type": "tab",
+      "label": "Flow 4",
+      "id": "97062621.b395b"
+    },
+    {
       "type": "subflow",
       "out": [
         {
@@ -68,6 +78,35 @@
         }
       ],
       "id": "f0cc9728.2b76c"
+    },
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 300,
+          "x": 480,
+          "wires": [
+            {
+              "port": 0,
+              "id": "d7358f68.e4106"
+            }
+          ]
+        }
+      ],
+      "name": "Request",
+      "info": "",
+      "in": [
+        {
+          "y": 300,
+          "x": 180,
+          "wires": [
+            {
+              "id": "d7358f68.e4106"
+            }
+          ]
+        }
+      ],
+      "id": "fe70cbd.bb5dd38"
     },
     {
       "z": "",
@@ -151,8 +190,8 @@
     },
     {
       "z": "318e5d11.68e1b2",
-      "y": 160,
-      "x": 90,
+      "y": 200,
+      "x": 110,
       "wires": [
         [
           "be67e2f9.eaa078"
@@ -170,7 +209,7 @@
     },
     {
       "z": "318e5d11.68e1b2",
-      "y": 80,
+      "y": 60,
       "x": 570,
       "wires": [],
       "type": "debug",
@@ -182,8 +221,8 @@
     },
     {
       "z": "318e5d11.68e1b2",
-      "y": 220,
-      "x": 570,
+      "y": 240,
+      "x": 590,
       "wires": [],
       "type": "debug",
       "name": "",
@@ -290,7 +329,7 @@
     {
       "z": "ba9289ec.1a48d",
       "y": 400,
-      "x": 290,
+      "x": 310,
       "wires": [
         [
           "1e273e6.afcaf42"
@@ -300,7 +339,7 @@
       "type": "http request",
       "tls": "",
       "ret": "txt",
-      "name": "Request",
+      "name": "Make Request",
       "multipart": false,
       "method": "GET",
       "id": "3437851c.200f6a"
@@ -614,7 +653,7 @@
     {
       "z": "910f4c55.baeb18",
       "y": 260,
-      "x": 540,
+      "x": 530,
       "wires": [],
       "type": "websocket out",
       "server": "d92f857a.ac6e98",
@@ -624,8 +663,8 @@
     },
     {
       "z": "910f4c55.baeb18",
-      "y": 420,
-      "x": 370,
+      "y": 440,
+      "x": 350,
       "wires": [],
       "type": "websocket out",
       "server": "",
@@ -745,10 +784,10 @@
         },
         {
           "timeoutUnits": "second",
-          "timeout": "1",
+          "timeout": "2",
           "tab": "ba9289ec.1a48d",
           "producer": "3437851c.200f6a",
-          "output": "0",
+          "output": "any",
           "op": "eq",
           "message": "forward",
           "expectedt": "str",
@@ -795,6 +834,162 @@
       "name": "Websocket Test",
       "method": "send",
       "id": "87ff438f.210078"
+    },
+    {
+      "z": "f4819d2c.21b61",
+      "y": 180,
+      "x": 170,
+      "wires": [
+        [
+          "a8699e04.ca5cd8"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "json",
+      "payload": "{\"a\": 1}",
+      "once": false,
+      "name": "",
+      "id": "76d8e876.e7b76",
+      "crontab": ""
+    },
+    {
+      "z": "fe70cbd.bb5dd38",
+      "y": 300,
+      "x": 330,
+      "wires": [
+        []
+      ],
+      "url": "http://google.com/something",
+      "type": "http request",
+      "tls": "",
+      "ret": "txt",
+      "name": "",
+      "multipart": false,
+      "method": "POST",
+      "id": "d7358f68.e4106"
+    },
+    {
+      "z": "f4819d2c.21b61",
+      "y": 380,
+      "x": 440,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "a22139bd.fde96",
+      "console": "false",
+      "complete": "false",
+      "active": true
+    },
+    {
+      "z": "f4819d2c.21b61",
+      "y": 300,
+      "x": 330,
+      "wires": [
+        [
+          "a22139bd.fde96"
+        ]
+      ],
+      "type": "subflow:fe70cbd.bb5dd38",
+      "name": "",
+      "id": "a8699e04.ca5cd8"
+    },
+    {
+      "z": "f4819d2c.21b61",
+      "y": 440,
+      "x": 110,
+      "wires": [
+        [
+          "dc834deb.6f8af"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "json",
+      "payload": "[1,2,3,4]",
+      "once": false,
+      "name": "",
+      "id": "5c7e4d39.fbcf44",
+      "crontab": ""
+    },
+    {
+      "z": "f4819d2c.21b61",
+      "y": 540,
+      "x": 280,
+      "wires": [
+        [
+          "f3933b0c.8fa6f"
+        ]
+      ],
+      "type": "statistics",
+      "srct": "msg",
+      "src": "payload",
+      "name": "",
+      "method": "count",
+      "id": "dc834deb.6f8af",
+      "destt": "msg",
+      "dest": "count"
+    },
+    {
+      "z": "f4819d2c.21b61",
+      "y": 580,
+      "x": 480,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "f3933b0c.8fa6f",
+      "console": "false",
+      "complete": "count",
+      "active": true
+    },
+    {
+      "z": "97062621.b395b",
+      "y": 160,
+      "x": 130,
+      "wires": [
+        [
+          "f142229.1df366"
+        ]
+      ],
+      "type": "inject",
+      "topic": "",
+      "repeat": "",
+      "payloadType": "json",
+      "payload": "{\"a\": 1}",
+      "once": false,
+      "name": "",
+      "id": "9503047e.9575e",
+      "crontab": ""
+    },
+    {
+      "z": "97062621.b395b",
+      "y": 240,
+      "x": 260,
+      "wires": [
+        [
+          "b72600ae.acd418"
+        ]
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "",
+      "id": "f142229.1df366",
+      "func": "msg.payload.b++;\n\nreturn msg;"
+    },
+    {
+      "z": "97062621.b395b",
+      "y": 320,
+      "x": 410,
+      "wires": [],
+      "type": "debug",
+      "name": "",
+      "id": "b72600ae.acd418",
+      "console": "false",
+      "complete": "false",
+      "active": true
     }
   ],
   "enabled": true
