@@ -1,0 +1,169 @@
+{
+  "options": {
+    "version": 1,
+    "repository": {
+      "url": "https://github.com/wingstand/workspaces",
+      "path": "Word Count (f8ca1dd2.af519e).json",
+      "branch": "master"
+    },
+    "timestamp": 1528367157847
+  },
+  "nodes": [
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 360,
+          "x": 420,
+          "wires": [
+            {
+              "port": 0,
+              "id": "f2719fa8.2733f3"
+            }
+          ]
+        }
+      ],
+      "name": "Words In Line",
+      "info": "Counts the words in a single line held in msg.payload\nand places them in msg.payload. Does not handle\nnew lines.",
+      "in": [
+        {
+          "y": 100,
+          "x": 40,
+          "wires": [
+            {
+              "id": "26c3f413.42cfee"
+            }
+          ]
+        }
+      ],
+      "id": "f6e4a1a0.1b7a29"
+    },
+    {
+      "z": "f6e4a1a0.1b7a29",
+      "y": 100,
+      "x": 150,
+      "wires": [
+        [
+          "d72416e6.d2703c"
+        ]
+      ],
+      "type": "reduce",
+      "separator": " ",
+      "name": "",
+      "initialValueType": "num",
+      "initialValue": "0",
+      "id": "26c3f413.42cfee"
+    },
+    {
+      "z": "f6e4a1a0.1b7a29",
+      "y": 260,
+      "x": 370,
+      "wires": [
+        []
+      ],
+      "type": "collect",
+      "name": "",
+      "id": "f2719fa8.2733f3"
+    },
+    {
+      "z": "f6e4a1a0.1b7a29",
+      "y": 160,
+      "x": 290,
+      "wires": [
+        [
+          "f2719fa8.2733f3"
+        ]
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "",
+      "id": "d72416e6.d2703c",
+      "func": "msg.acc++;\n\nreturn msg;"
+    },
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 380,
+          "x": 460,
+          "wires": [
+            {
+              "port": 0,
+              "id": "efd9cfb1.89f9db"
+            }
+          ]
+        }
+      ],
+      "name": "Word Count",
+      "info": "Counts the words in msg.payload and places the result in msg.payload.",
+      "in": [
+        {
+          "y": 40,
+          "x": 60,
+          "wires": [
+            {
+              "id": "aa4ecfc8.e7c1fc"
+            }
+          ]
+        }
+      ],
+      "id": "f8ca1dd2.af519e"
+    },
+    {
+      "z": "f8ca1dd2.af519e",
+      "y": 160,
+      "x": 230,
+      "wires": [
+        [
+          "b4978d04.1021d9"
+        ]
+      ],
+      "type": "subflow:f6e4a1a0.1b7a29",
+      "name": "",
+      "id": "89bff37d.b4b132"
+    },
+    {
+      "z": "f8ca1dd2.af519e",
+      "y": 80,
+      "x": 170,
+      "wires": [
+        [
+          "89bff37d.b4b132"
+        ]
+      ],
+      "type": "reduce",
+      "separator": "\\n",
+      "name": "",
+      "initialValueType": "num",
+      "initialValue": "0",
+      "id": "aa4ecfc8.e7c1fc"
+    },
+    {
+      "z": "f8ca1dd2.af519e",
+      "y": 240,
+      "x": 290,
+      "wires": [
+        [
+          "efd9cfb1.89f9db"
+        ]
+      ],
+      "type": "accumulate",
+      "op": "add",
+      "name": "",
+      "id": "b4978d04.1021d9"
+    },
+    {
+      "z": "f8ca1dd2.af519e",
+      "y": 320,
+      "x": 370,
+      "wires": [
+        []
+      ],
+      "type": "collect",
+      "name": "",
+      "id": "efd9cfb1.89f9db"
+    }
+  ],
+  "id": "f8ca1dd2.af519e"
+}
