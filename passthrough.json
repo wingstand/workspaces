@@ -1,0 +1,57 @@
+{
+  "options": {
+    "version": 1,
+    "repository": {
+      "url": "https://github.com/wingstand/workspaces",
+      "path": "passthrough.json",
+      "branch": "master"
+    },
+    "timestamp": 1528367149078
+  },
+  "nodes": [
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 220,
+          "x": 360,
+          "wires": [
+            {
+              "port": 0,
+              "id": "bbf2b7c6.6ee60d"
+            }
+          ]
+        }
+      ],
+      "name": "Passthrough 2",
+      "info": "Passes through a message unchanged.",
+      "in": [
+        {
+          "y": 120,
+          "x": 60,
+          "wires": [
+            {
+              "id": "bbf2b7c6.6ee60d"
+            }
+          ]
+        }
+      ],
+      "id": "e04f7d98.3c6ceb"
+    },
+    {
+      "z": "e04f7d98.3c6ceb",
+      "y": 180,
+      "x": 180,
+      "wires": [
+        []
+      ],
+      "type": "function",
+      "outputs": 1,
+      "noerr": 0,
+      "name": "",
+      "id": "bbf2b7c6.6ee60d",
+      "func": "\nreturn msg;"
+    }
+  ],
+  "id": "e04f7d98.3c6ceb"
+}
