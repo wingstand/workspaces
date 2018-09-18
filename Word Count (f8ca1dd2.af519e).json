@@ -1,12 +1,11 @@
 {
   "options": {
-    "version": 1,
+    "version": 3,
     "repository": {
       "url": "https://github.com/wingstand/workspaces",
       "path": "Word Count (f8ca1dd2.af519e).json",
       "branch": "master"
-    },
-    "timestamp": 1528367157847
+    }
   },
   "nodes": [
     {
@@ -14,7 +13,7 @@
       "out": [
         {
           "y": 360,
-          "x": 420,
+          "x": 460,
           "wires": [
             {
               "port": 0,
@@ -85,8 +84,8 @@
       "type": "subflow",
       "out": [
         {
-          "y": 380,
-          "x": 460,
+          "y": 400,
+          "x": 440,
           "wires": [
             {
               "port": 0,
@@ -148,8 +147,16 @@
           "efd9cfb1.89f9db"
         ]
       ],
-      "type": "accumulate",
-      "op": "add",
+      "type": "change",
+      "rules": [
+        {
+          "tot": "msg",
+          "to": "payload",
+          "t": "increment",
+          "pt": "msg",
+          "p": "acc"
+        }
+      ],
       "name": "",
       "id": "b4978d04.1021d9"
     },
