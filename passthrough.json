@@ -1,6 +1,6 @@
 {
   "options": {
-    "version": 1,
+    "version": 2,
     "repository": {
       "url": "https://github.com/wingstand/workspaces",
       "path": "passthrough.json",
@@ -13,8 +13,8 @@
       "type": "subflow",
       "out": [
         {
-          "y": 220,
-          "x": 360,
+          "y": 60,
+          "x": 280,
           "wires": [
             {
               "port": 0,
@@ -23,11 +23,11 @@
           ]
         }
       ],
-      "name": "Passthrough 2",
+      "name": "Passthrough",
       "info": "Passes through a message unchanged.",
       "in": [
         {
-          "y": 120,
+          "y": 60,
           "x": 60,
           "wires": [
             {
@@ -40,8 +40,8 @@
     },
     {
       "z": "e04f7d98.3c6ceb",
-      "y": 180,
-      "x": 180,
+      "y": 60,
+      "x": 170,
       "wires": [
         []
       ],
