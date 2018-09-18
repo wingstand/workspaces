@@ -5,8 +5,7 @@
       "url": "https://github.com/wingstand/workspaces",
       "path": "607fe44a.91f732.json",
       "branch": "master"
-    },
-    "timestamp": 1528367154496
+    }
   },
   "nodes": [
     {
@@ -96,7 +95,7 @@
         }
       ],
       "name": "Quadruple",
-      "info": "",
+      "info": "Quadruples msg.payload.",
       "in": [
         {
           "y": 40,
