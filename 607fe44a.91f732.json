@@ -1,0 +1,137 @@
+{
+  "options": {
+    "version": 1,
+    "repository": {
+      "url": "https://github.com/wingstand/workspaces",
+      "path": "607fe44a.91f732.json",
+      "branch": "master"
+    },
+    "timestamp": 1528367154496
+  },
+  "nodes": [
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 200,
+          "x": 460,
+          "wires": [
+            {
+              "port": 0,
+              "id": "6d7ced17.b48fe8"
+            }
+          ]
+        }
+      ],
+      "name": "Double",
+      "info": "",
+      "in": [
+        {
+          "y": 30,
+          "x": 50,
+          "wires": [
+            {
+              "id": "6d7ced17.b48fe8"
+            }
+          ]
+        }
+      ],
+      "id": "79fb9f3.fb5444"
+    },
+    {
+      "z": "79fb9f3.fb5444",
+      "y": 140,
+      "x": 230,
+      "wires": [
+        []
+      ],
+      "type": "elixir",
+      "script": "update_in msg[\"payload\"], fn p -> 2 * p end\n",
+      "outputs": 1,
+      "name": "",
+      "id": "6d7ced17.b48fe8"
+    },
+    {
+      "z": "79fb9f3.fb5444",
+      "y": 235,
+      "x": 197.5,
+      "wires": [
+        [
+          "cf7aad4a.6afa2b"
+        ]
+      ],
+      "type": "catch",
+      "scope": [
+        "6d7ced17.b48fe8"
+      ],
+      "name": "",
+      "id": "d7d8cee3.9a2e38"
+    },
+    {
+      "z": "79fb9f3.fb5444",
+      "y": 367,
+      "x": 278.5,
+      "wires": [],
+      "type": "debug",
+      "srcType": "msg",
+      "src": "payload",
+      "name": "",
+      "level": "info",
+      "id": "cf7aad4a.6afa2b",
+      "console": "false",
+      "active": true
+    },
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 160,
+          "x": 500,
+          "wires": [
+            {
+              "port": 0,
+              "id": "c58c1949.828220"
+            }
+          ]
+        }
+      ],
+      "name": "Quadruple",
+      "info": "",
+      "in": [
+        {
+          "y": 40,
+          "x": 40,
+          "wires": [
+            {
+              "id": "e6b7b3d9.5382ff"
+            }
+          ]
+        }
+      ],
+      "id": "607fe44a.91f732"
+    },
+    {
+      "z": "607fe44a.91f732",
+      "y": 160,
+      "x": 260,
+      "wires": [
+        [
+          "c58c1949.828220"
+        ]
+      ],
+      "type": "subflow:79fb9f3.fb5444",
+      "id": "e6b7b3d9.5382ff"
+    },
+    {
+      "z": "607fe44a.91f732",
+      "y": 100,
+      "x": 400,
+      "wires": [
+        []
+      ],
+      "type": "subflow:79fb9f3.fb5444",
+      "id": "c58c1949.828220"
+    }
+  ],
+  "id": "607fe44a.91f732"
+}
