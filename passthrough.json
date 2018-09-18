@@ -1,6 +1,6 @@
 {
   "options": {
-    "version": 2,
+    "version": 3,
     "repository": {
       "url": "https://github.com/wingstand/workspaces",
       "path": "passthrough.json",
@@ -14,7 +14,7 @@
       "out": [
         {
           "y": 60,
-          "x": 280,
+          "x": 320,
           "wires": [
             {
               "port": 0,
@@ -41,7 +41,7 @@
     {
       "z": "e04f7d98.3c6ceb",
       "y": 60,
-      "x": 170,
+      "x": 190,
       "wires": [
         []
       ],
