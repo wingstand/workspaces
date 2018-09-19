@@ -1,8 +1,8 @@
 {
   "options": {
-    "version": 2,
+    "version": 3,
     "repository": {
-      "url": "https://github.com/wingstand/workspaces",
+      "url": "https://github.com/wingstand/workspaces.git",
       "path": "607fe44a.91f732.json",
       "branch": "master"
     }
@@ -84,8 +84,8 @@
       "type": "subflow",
       "out": [
         {
-          "y": 160,
-          "x": 500,
+          "y": 40,
+          "x": 400,
           "wires": [
             {
               "port": 0,
@@ -111,8 +111,8 @@
     },
     {
       "z": "607fe44a.91f732",
-      "y": 80,
-      "x": 190,
+      "y": 40,
+      "x": 150,
       "wires": [
         [
           "c58c1949.828220"
@@ -123,8 +123,8 @@
     },
     {
       "z": "607fe44a.91f732",
-      "y": 80,
-      "x": 350,
+      "y": 40,
+      "x": 290,
       "wires": [
         []
       ],
