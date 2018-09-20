@@ -1,8 +1,8 @@
 {
   "options": {
-    "version": 3,
+    "version": 4,
     "repository": {
-      "url": "https://github.com/wingstand/workspaces",
+      "url": "https://github.com/wingstand/workspaces.git",
       "path": "Word Count (f8ca1dd2.af519e).json",
       "branch": "master"
     }
