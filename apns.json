@@ -1,0 +1,417 @@
+{
+  "options": {
+    "version": 11,
+    "repository": {
+      "url": "https://github.com/wingstand/workspaces",
+      "path": "apns.json",
+      "branch": "master"
+    }
+  },
+  "module": "Elixir.Workspace_apns",
+  "id": "apns",
+  "flows": [
+    {
+      "type": "tab",
+      "label": "Register Device Token",
+      "id": "5da0a0e.c75f16"
+    },
+    {
+      "type": "tab",
+      "label": "Post Notification Test",
+      "id": "fd78bbea.00bc4"
+    },
+    {
+      "type": "tab",
+      "label": "Global Constants",
+      "id": "c64ca4e9.95d3a"
+    },
+    {
+      "type": "subflow",
+      "out": [
+        {
+          "y": 520,
+          "x": 140,
+          "wires": [
+            {
+              "port": 0,
+              "id": "f5333461.e05ed8"
+            }
+          ]
+        }
+      ],
+      "name": "Post Notification",
+      "info": "",
+      "in": [
+        {
+          "y": 30,
+          "x": 50,
+          "wires": [
+            {
+              "id": "8c94f627.6c9548"
+            }
+          ]
+        }
+      ],
+      "id": "bb924d4.12be8b"
+    },
+    {
+      "type": "asymmetric-key",
+      "publicKeyPath": "",
+      "privateKeyPath": "~/Documents/AuthKey_A67C55SVVC.p8",
+      "name": "Gary's Dev Key",
+      "id": "872b0bc3.a7b2e8"
+    },
+    {
+      "z": "5da0a0e.c75f16",
+      "y": 60,
+      "x": 110,
+      "wires": [
+        [
+          "fc7e94ef.4fd6f"
+        ]
+      ],
+      "url": "/register",
+      "type": "http in",
+      "swaggerDoc": "",
+      "name": "",
+      "method": "post",
+      "id": "f574c6eb.5273f"
+    },
+    {
+      "z": "5da0a0e.c75f16",
+      "y": 300,
+      "x": 170,
+      "wires": [],
+      "type": "debug",
+      "srcType": "str",
+      "src": "Registered device token {{msg.payload}} for {{msg.req.query.user}}",
+      "name": "",
+      "level": "info",
+      "id": "65d96ae4.2a9354",
+      "console": "true",
+      "active": true
+    },
+    {
+      "z": "5da0a0e.c75f16",
+      "y": 220,
+      "x": 200,
+      "wires": [
+        [
+          "65d96ae4.2a9354"
+        ]
+      ],
+      "type": "change",
+      "to": "",
+      "rules": [
+        {
+          "tot": "msg",
+          "to": "payload",
+          "t": "set",
+          "pt": "global",
+          "p": "users[\"{{msg.req.query.user}}\"]"
+        }
+      ],
+      "reg": false,
+      "property": "",
+      "name": "",
+      "id": "9ea8f95.7b78888",
+      "from": "",
+      "action": ""
+    },
+    {
+      "z": "5da0a0e.c75f16",
+      "y": 140,
+      "x": 110,
+      "wires": [
+        [
+          "9ea8f95.7b78888"
+        ]
+      ],
+      "uppercase": false,
+      "type": "encoding",
+      "srcType": "msg",
+      "src": "req.body",
+      "name": "",
+      "method": "encode",
+      "id": "fc7e94ef.4fd6f",
+      "encoding": "hex",
+      "destType": "msg",
+      "dest": "payload",
+      "decodeTo": "guess"
+    },
+    {
+      "z": "fd78bbea.00bc4",
+      "y": 60,
+      "x": 90,
+      "wires": [
+        [
+          "57d68e26.c07de"
+        ]
+      ],
+      "type": "inject",
+      "repeat": "",
+      "payloadType": "json",
+      "payload": "{\"title\": \"Hello\", \"subtitle\": \"A test\", \"body\": \"Hello, Gary!\"}",
+      "once": false,
+      "name": "",
+      "id": "6e50c326.8b470c",
+      "crontab": ""
+    },
+    {
+      "z": "fd78bbea.00bc4",
+      "y": 220,
+      "x": 120,
+      "wires": [],
+      "type": "debug",
+      "srcType": "complete",
+      "src": "",
+      "name": "",
+      "level": "info",
+      "id": "4a1025c6.42d53c",
+      "console": "true",
+      "active": true
+    },
+    {
+      "z": "c64ca4e9.95d3a",
+      "y": 60,
+      "x": 300,
+      "wires": [
+        []
+      ],
+      "type": "change",
+      "to": "",
+      "rules": [
+        {
+          "tot": "str",
+          "to": "FG5V982ZC6",
+          "t": "set",
+          "pt": "global",
+          "p": "teamID"
+        },
+        {
+          "tot": "str",
+          "to": "A67C55SVVC",
+          "t": "set",
+          "pt": "global",
+          "p": "keyID"
+        },
+        {
+          "tot": "str",
+          "to": "~/Documents/AuthKey_A67C55SVVC.p8",
+          "t": "set",
+          "pt": "global",
+          "p": "keyPath"
+        }
+      ],
+      "reg": false,
+      "property": "",
+      "name": "",
+      "id": "a87e645.ccf3b98",
+      "from": "",
+      "action": ""
+    },
+    {
+      "z": "c64ca4e9.95d3a",
+      "y": 60,
+      "x": 120,
+      "wires": [
+        [
+          "a87e645.ccf3b98"
+        ]
+      ],
+      "type": "inject",
+      "repeat": "",
+      "payloadType": "date",
+      "payload": "",
+      "once": true,
+      "name": "",
+      "id": "f836a767.c5763",
+      "crontab": ""
+    },
+    {
+      "z": "bb924d4.12be8b",
+      "y": 40,
+      "x": 180,
+      "wires": [
+        [
+          "ada68498.cce7f8"
+        ]
+      ],
+      "type": "jwt",
+      "srct": "msg",
+      "src": "payload",
+      "rules": [
+        {
+          "valuet": "global",
+          "value": "keyID",
+          "type": "header",
+          "header": "kid",
+          "claimt": "iss",
+          "claim": ""
+        },
+        {
+          "valuet": "global",
+          "value": "teamID",
+          "type": "claim",
+          "header": "",
+          "claimt": "iss",
+          "claim": ""
+        }
+      ],
+      "name": "",
+      "method": "sign",
+      "id": "8c94f627.6c9548",
+      "headerst": "msg",
+      "headers": "",
+      "destt": "msg",
+      "dest": "token",
+      "asymmetricKey": "872b0bc3.a7b2e8",
+      "algorithm": "ES256"
+    },
+    {
+      "z": "bb924d4.12be8b",
+      "y": 360,
+      "x": 200,
+      "wires": [
+        [
+          "f5333461.e05ed8"
+        ]
+      ],
+      "type": "change",
+      "to": "",
+      "rules": [
+        {
+          "tot": "str",
+          "to": "com.commontime.garypush",
+          "t": "set",
+          "pt": "msg",
+          "p": "headers[\"apns-topic\"]"
+        },
+        {
+          "tot": "str",
+          "to": "10",
+          "t": "set",
+          "pt": "msg",
+          "p": "headers[\"apns-priority\"]"
+        },
+        {
+          "tot": "msg",
+          "to": "token",
+          "t": "set",
+          "pt": "msg",
+          "p": "headers.authorization"
+        },
+        {
+          "tot": "global",
+          "to": "users[\"gary\"]",
+          "t": "set",
+          "pt": "msg",
+          "p": "deviceToken"
+        },
+        {
+          "tot": "msg",
+          "to": "expiration",
+          "t": "set",
+          "pt": "msg",
+          "p": "headers[\"apns-expiration\"]"
+        }
+      ],
+      "reg": false,
+      "property": "",
+      "name": "",
+      "id": "2f77dd0f.7ede1a",
+      "from": "",
+      "action": ""
+    },
+    {
+      "z": "bb924d4.12be8b",
+      "y": 120,
+      "x": 210,
+      "wires": [
+        [
+          "4429fc3a.acfdf4"
+        ]
+      ],
+      "type": "template",
+      "template": "{ \n    \"aps\": { \n        \"alert\": {\n            \"title\": \"{{payload.title}}\",\n            \"subtitle\": \"{{payload.subtitle}}\",\n            \"body\": \"{{payload.body}}\"\n        },\n        \"sound\": \"default\"\n    } \n}\n",
+      "ret": "json",
+      "name": "Notification payload",
+      "id": "ada68498.cce7f8",
+      "format": "json",
+      "fieldType": "msg",
+      "field": "payload",
+      "context": "message"
+    },
+    {
+      "z": "bb924d4.12be8b",
+      "y": 440,
+      "x": 190,
+      "wires": [
+        []
+      ],
+      "url": "https://api.development.push.apple.com:443/3/device/{{deviceToken}}",
+      "type": "http request",
+      "ret": "txt",
+      "name": "",
+      "multipart": false,
+      "method": "POST",
+      "ignorecerterrors": false,
+      "id": "f5333461.e05ed8",
+      "autocontenttype": false
+    },
+    {
+      "z": "bb924d4.12be8b",
+      "y": 280,
+      "x": 200,
+      "wires": [
+        [
+          "2f77dd0f.7ede1a"
+        ]
+      ],
+      "type": "template",
+      "template": "bearer {{token}}",
+      "ret": "string",
+      "name": "Set bearer token",
+      "id": "b7991ab.9773968",
+      "format": "handlebars",
+      "fieldType": "msg",
+      "field": "token",
+      "context": "message"
+    },
+    {
+      "z": "bb924d4.12be8b",
+      "y": 200,
+      "x": 200,
+      "wires": [
+        [
+          "b7991ab.9773968"
+        ]
+      ],
+      "type": "date",
+      "srcType": "now",
+      "srcFormat": "javascript",
+      "src": "",
+      "op": "increment",
+      "offsetUnits": "minutes",
+      "offset": "30",
+      "name": "Expiration time",
+      "id": "4429fc3a.acfdf4",
+      "destType": "msg",
+      "destFormat": "unix",
+      "dest": "expiration"
+    },
+    {
+      "z": "fd78bbea.00bc4",
+      "y": 140,
+      "x": 120,
+      "wires": [
+        [
+          "4a1025c6.42d53c"
+        ]
+      ],
+      "type": "subflow:bb924d4.12be8b",
+      "id": "57d68e26.c07de"
+    }
+  ],
+  "enabled": true
+}
